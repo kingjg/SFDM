@@ -4,7 +4,7 @@ from torch.nn import functional as F
 
 
 class IDRLoss(nn.Module):
-    def __init__(self, device, config, rgb_weight, eikonal_weight, embedding_weight, spec_weight, light_reg, residual_weight, brdf_offset_weight, scatter_offset_weight, \
+    def __init__(self, device, config, rgb_weight, eikonal_weight, embedding_weight, spec_weight, light_reg, residual_weight, brdf_offset_weight, \
                  diffuse_offset_weight=0, albedo_g_weight=0):
         super().__init__()
         self.device = device
@@ -17,7 +17,6 @@ class IDRLoss(nn.Module):
         self.light_reg = light_reg
         self.residual_weight = residual_weight
         self.brdf_offset_weight = brdf_offset_weight
-        # self.scatter_offset_weight = scatter_offset_weight
         self.diffuse_offset_weight = diffuse_offset_weight
         self.albedo_g_weight = albedo_g_weight
 
@@ -84,7 +83,6 @@ class IDRLoss(nn.Module):
         if self.config.get("is_stage1", False):
             albedo_g_loss = self.get_albedo_gradient_loss(pred_albedo_g, albedo_g.detach()) * self.albedo_g_weight
         else:
-            # albedo_g_loss = self.get_albedo_gradient_loss(pred_albedo_g.detach(), albedo_g) * self.albedo_g_weight
             albedo_g_loss = 0.
 
         rgb_loss = self.get_rgb_loss(model_outputs['rgb_values'], rgb_gt) * self.rgb_weight     
@@ -96,15 +94,8 @@ class IDRLoss(nn.Module):
         lgt_loss = self.l_reg(sh_light) * self.light_reg
         residual_loss = self.residual_loss(residual_sdf) * self.residual_weight
         brdf_offset_loss = self.brdf_residual_loss(model_outputs['brdf_offset']) * self.brdf_offset_weight
-        # if self.scatter_offset_weight != 0:
-        #     scatter_offset_loss = self.scatter_residual_loss(model_outputs['scatter_offset']) * self.scatter_offset_weight
-        # else:
-        #     scatter_offset_loss = 0
 
-        # if self.diffuse_offset_weight != 0:
         diffuse_offset_loss = torch.mean(torch.abs(model_outputs['diffuse_offset'])) * self.diffuse_offset_weight
-        # else:
-        #     diffuse_offset_loss = 0
 
         loss = rgb_loss + id_loss + exp_loss + eikonal_loss + lgt_loss + energy_loss \
                 + residual_loss + brdf_latent_loss + brdf_offset_loss \
