@@ -11,7 +11,11 @@
 ---
 </div>
 
-Official repository for "SFDM: Robust Decomposition of Geometry and Reflectance for Realistic Face Rendering from Sparse-view Images". 
+<div align="center">
+<tr>
+    <img src="imgs/teaser.png" width="80%"/>
+</tr>
+</div>
 
 >In this study, we introduce a novel two-stage technique for decomposing and reconstructing facial features from sparse-view images, a task made challenging by the unique geometry and complex skin reflectance of each individual. To synthesize 3D facial models more realistically, we endeavor to decouple key facial attributes from the RGB color, including geometry, diffuse reflectance, and specular reflectance. Specifically, we design a Sparse-view Face Decomposition Model (SFDM): 1) In the first stage, we create a general facial template from a wide array of individual faces, encapsulating essential geometric and reflectance characteristics. 2) Guided by this template, we refine a specific facial model for each individual in the second stage, considering the interaction between geometry and reflectance, as well as the effects of subsurface scattering on the skin. With these advances, our method can reconstruct high-quality facial representations from as few as three images. The comprehensive evaluation and comparison reveal that our approach outperforms existing methods by effectively disentangling geometric and reflectance components, significantly enhancing the quality of synthesized novel views, and paving the way for applications in facial relighting and reflectance editing.
 
@@ -28,7 +32,7 @@ pip install -r requirement.txt
 
 ## Data Preparation
 
-We mainly utilize <a href="https://facescape.nju.edu.cn/" target="_blank">FaceScape Dataset</a> for the evaluation. Please kindly refer <a href="https://github.com/lioryariv/volsdf" target="_blank">NeuFace</a> for the preprocessing of FaceScape dataset and downloading the pretrained ImFace model.
+We mainly use the <a href="https://facescape.nju.edu.cn/" target="_blank">FaceScape Dataset</a> for evaluation. Please refer to <a href="https://github.com/lioryariv/volsdf" target="_blank">NeuFace</a> for instructions on preprocessing the FaceScape dataset and downloading the pretrained ImFace model.
 
 ## Individual Reconstruction
 
