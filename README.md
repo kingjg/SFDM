@@ -46,7 +46,7 @@ python tools/train.py --cfg ./config/train_sfdm_st2.yaml
 ```shell
 # Evaluation
 # change eval_type in the config file to 'evalset'
-python tools/eval.py --cfg ./config/train_sfdm_st2.yaml --out_dir ./exp_pl/results --ckpt $PATH_TO_CKPT
+python tools/eval.py --cfg ./config/train_sfdm_st2.yaml --out_dir ./outputs/results --ckpt $PATH_TO_CKPT
 ```
 
 ### Test on Facescape
@@ -54,7 +54,7 @@ python tools/eval.py --cfg ./config/train_sfdm_st2.yaml --out_dir ./exp_pl/resul
 ```shell
 # Evaluation
 # change eval_type in the config file to 'testset'
-python tools/eval.py --cfg ./config/train_sfdm_st2.yaml --out_dir ./exp_pl/results --ckpt $PATH_TO_CKPT
+python tools/eval.py --cfg ./config/train_sfdm_st2.yaml --out_dir ./outputs/results --ckpt $PATH_TO_CKPT
 ```
 
 ## Citation
