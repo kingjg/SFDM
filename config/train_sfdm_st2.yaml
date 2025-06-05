@@ -1,0 +1,79 @@
+seed: 42
+port: 2838
+
+# Pretrained path:
+load_path: 'PATH_TO_IMFACE_MODEL'
+template_path: 'PATH_TO_TEMPLATE_MODEL'
+
+# Output path:
+out_dir: 'outputs'
+views: '5'
+expname: 'sfdm_st2_p212_exp16_5view'
+num_gpus: 1
+
+dataset:
+  data_dir: 'PATH_TO_DATASET'
+  batch_size: 1
+  facescape_id: [212] 
+  facescape_exp: [16] 
+  factor: 4
+
+template_loss_scale: 0.02
+is_stage1: False
+val_epochs: 500
+use_brdf_offset: True
+use_scatter: True
+use_siren: True
+spec_edit: False
+
+voxel_resolution: 64
+points_per_inference: 163840
+grid_radius: 1
+sample_num: 16384
+
+rendering_network:
+  d_in: 3
+  d_out: 3
+  dims: [256, 256, 256, 256, 256, 256, 256, 256]
+  low_rank: 3
+  brdf_network:
+    depth: 8
+    hidden_dim: 256
+  calibration_network:
+    depth: 1
+    hidden_dim: 128
+
+ray_tracing:
+  object_bounding_sphere: 1
+  sdf_threshold: 0.0005
+  line_search_step: 0.5
+  line_step_iters: 3
+  sphere_tracing_iters: 10
+  n_steps: 100
+  n_secant_steps: 8
+
+train:
+  epoch: 3000
+  lr: 0.0001
+  sched_milestones: [375, 750, 1125, 1500, 1875, 2250]
+  sched_factor: 0.5
+  num_pixels: 2048
+  plot_freq: 500
+
+loss:
+  rgb_weight: 1.0
+  eikonal_weight: 0.1
+  embedding_weight: 1000
+  spec_weight: 0.025
+  light_reg: 0.005
+  residual_weight: 0.001
+  brdf_offset_weight: 0.001
+  diffuse_offset_weight: 0.005
+
+plot:
+  plot_nimgs: 1
+  max_depth: 3.0
+  resolution: 50
+
+test_view_num: 10
+eval_type: 'testset'
