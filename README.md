@@ -33,6 +33,8 @@ pip install -r requirement.txt
 
 We mainly use the <a href="https://facescape.nju.edu.cn/" target="_blank">FaceScape Dataset</a> for evaluation. Please refer to <a href="https://github.com/lioryariv/volsdf" target="_blank">NeuFace</a> for instructions on preprocessing the FaceScape dataset and downloading the pretrained ImFace model.
 
+The pretrained facial template can be downloaded at <a href="https://entuedu-my.sharepoint.com/:u:/g/personal/daisheng001_e_ntu_edu_sg/EQx-eyo7n9ZHlvlziIvoO1kB3WMCd7V7k47XiYwAIISbSg?e=gYcwqe" target="_blank">OneDrive</a>
+
 ## Individual Reconstruction
 
 ### Train on Facescape
