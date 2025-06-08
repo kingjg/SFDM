@@ -62,11 +62,12 @@ python tools/eval.py --cfg ./config/train_sfdm_st2.yaml --out_dir ./outputs/resu
 ## Citation
 
 ```
-@article{jin2023robust,
-  title={Robust Geometry and Reflectance Disentanglement for 3D Face Reconstruction from Sparse-view Images},
+@inproceedings{jin2025sfdm,
+  title={SFDM: Robust Decomposition of Geometry and Reflectance for Realistic Face Rendering from Sparse-view Images},
   author={Jin, Daisheng and Hu, Jiangbei and Xu, Baixin and Dai, Yuxin and Qian, Chen and He, Ying},
-  journal={arXiv preprint arXiv:2312.06085},
-  year={2023}
+  booktitle={Proceedings of the Computer Vision and Pattern Recognition Conference},
+  pages={26409--26419},
+  year={2025}
 }
 ```
 
