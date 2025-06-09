@@ -4,7 +4,7 @@
 
 <h4 align="center">
   <a href="https://kingjg.github.io/SFDM.github.io/" target='_blank'>[Project Page]</a> •
-  <a href="https://arxiv.org/abs/2312.06085" target='_blank'>[arXiv]</a>
+  <a href="https://openaccess.thecvf.com/content/CVPR2025/papers/Jin_SFDM_Robust_Decomposition_of_Geometry_and_Reflectance_for_Realistic_Face_CVPR_2025_paper.pdf" target='_blank'>[Paper]</a>
   <br>
 </h4>
 
